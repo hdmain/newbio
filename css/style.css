@@ -756,6 +756,15 @@ main {
   opacity: 0.6;
 }
 
+.hero__stat-value--text::after {
+  content: none;
+}
+
+.hero__stat-value--text {
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+}
+
 .hero__stat-label {
   display: block;
   font-family: var(--font-mono);
@@ -1064,6 +1073,30 @@ main {
   color: rgba(255, 26, 60, 0.15);
 }
 
+.features__grid--projects {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.feature-card--link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.feature-card__repo {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--neon-red);
+  transition: text-shadow 0.3s;
+}
+
+.feature-card--link:hover .feature-card__repo {
+  text-shadow: 0 0 12px rgba(255, 26, 60, 0.5);
+}
+
 /* ─── About ─── */
 
 .about__layout {
@@ -1272,6 +1305,18 @@ main {
   align-items: start;
 }
 
+.pricing__grid--install {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.price-card__platform {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
 .price-card {
   position: relative;
   padding: 2.5rem 2rem;
@@ -1380,6 +1425,20 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+}
+
+.testimonials__track--highlights {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.testimonial-card__tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--neon-red);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 12px rgba(255, 26, 60, 0.3);
 }
 
 .testimonial-card {
@@ -1712,8 +1771,9 @@ body.fallback-bg {
   .hero__visual { min-height: 320px; }
   .hero__hud { display: none; }
 
-  .features__grid {
-    grid-template-columns: 1fr 1fr;
+  .features__grid,
+  .features__grid--projects {
+    grid-template-columns: 1fr;
   }
 
   .feature-card--large,
@@ -1745,7 +1805,9 @@ body.fallback-bg {
   }
 
   .pricing__grid,
-  .testimonials__track {
+  .pricing__grid--install,
+  .testimonials__track,
+  .testimonials__track--highlights {
     grid-template-columns: 1fr;
     max-width: 480px;
   }
@@ -1772,6 +1834,10 @@ body.fallback-bg {
   .nav-mobile { display: flex; }
 
   .features__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features__grid--projects {
     grid-template-columns: 1fr;
   }
 

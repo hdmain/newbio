@@ -30,6 +30,6 @@ Open [http://localhost:8080](http://localhost:8080).
 
 ## Customize
 
-Edit `index.html` for your name, bio text, tags, links, pricing tiers, and testimonials.
+Edit `index.html` for personal details and links. Project copy lives in `js/i18n.js` (EN/PL).
 
 Shader colors and nebula effects live in `js/shaders.js`. Rendering logic is in `js/webgl.js`. UI interactions (parallax, scroll reveal, particles) are in `js/main.js`. Translations (PL/EN) are in `js/i18n.js` — language auto-detects from the browser and can be switched via the header toggle; choice is saved in `localStorage`.
