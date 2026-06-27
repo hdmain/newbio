@@ -1,6 +1,7 @@
 # Red Galaxy — Premium Bio Platform
 
-https://hdmain.github.io/newbio/
+**Live:** [https://hdmain.eu](https://hdmain.eu)  
+**GitHub Pages:** [https://hdmain.github.io/newbio/](https://hdmain.github.io/newbio/)
 
 A cinematic personal platform with a **Red Galaxy** aesthetic — WebGL2 + GLSL nebula background, glassmorphic UI, neon red glows, and luxury sci-fi interactions. Static files only — works on **GitHub Pages** with no build step.
 
@@ -15,10 +16,17 @@ Open [http://localhost:8080](http://localhost:8080).
 
 ## GitHub Pages
 
-1. Create a repo (e.g. `username.github.io` for a user site, or any repo for a project site).
-2. Push this folder to the repo root (or to `/docs` if you use that source).
-3. In **Settings → Pages**, set source to the branch/folder with `index.html`.
-4. Wait a minute — your site will be live at `https://<user>.github.io` (or `.../repo-name/`).
+1. Push this folder to [github.com/hdmain/newbio](https://github.com/hdmain/newbio).
+2. In **Settings → Pages**, set source to the branch/folder with `index.html`.
+3. The site is available at `https://hdmain.github.io/newbio/`.
+
+### Custom domain (hdmain.eu)
+
+1. In **Settings → Pages → Custom domain**, enter `hdmain.eu`.
+2. At your DNS provider, add:
+   - **A records** pointing to GitHub Pages IPs: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - Or a **CNAME** for `www` → `hdmain.github.io` (if using `www.hdmain.eu`)
+3. Enable **Enforce HTTPS** once DNS propagates.
 
 ## Customize
 

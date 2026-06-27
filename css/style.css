@@ -1604,6 +1604,15 @@ main {
   border-top: 1px solid rgba(255, 26, 60, 0.08);
 }
 
+.site-footer__copy a {
+  color: var(--text-secondary);
+  transition: color 0.3s;
+}
+
+.site-footer__copy a:hover {
+  color: var(--neon-red);
+}
+
 .site-footer__copy,
 .site-footer__hint {
   font-family: var(--font-mono);
