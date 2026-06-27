@@ -1,5 +1,7 @@
 # Red Galaxy — Premium Bio Platform
 
+https://hdmain.github.io/newbio/
+
 A cinematic personal platform with a **Red Galaxy** aesthetic — WebGL2 + GLSL nebula background, glassmorphic UI, neon red glows, and luxury sci-fi interactions. Static files only — works on **GitHub Pages** with no build step.
 
 ## Local preview
