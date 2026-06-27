@@ -3,54 +3,447 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal bio">
-  <title>Bio</title>
+  <meta name="description" content="Your Name — Creative Developer crafting immersive red-galaxy digital experiences">
+  <meta name="theme-color" content="#0a0005">
+  <title>Your Name — Red Galaxy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <canvas id="shader-canvas" aria-hidden="true"></canvas>
+  <div class="cosmos" aria-hidden="true">
+    <canvas id="shader-canvas"></canvas>
+    <div class="nebula nebula--a"></div>
+    <div class="nebula nebula--b"></div>
+    <div class="nebula nebula--c"></div>
+    <div class="scanlines"></div>
+    <div class="stars" id="stars"></div>
+    <div class="particles" id="particles"></div>
+    <div class="vignette"></div>
+  </div>
 
-  <main class="bio">
-    <header class="bio__header">
-      <p class="bio__eyebrow">Hello, I'm</p>
-      <h1 class="bio__name" data-text="Your Name">Your Name</h1>
-      <p class="bio__role">Creative Developer · Shader Artist</p>
-    </header>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
 
-    <section class="bio__section">
-      <h2 class="bio__label">About</h2>
-      <p class="bio__text">
-        I build immersive web experiences with WebGL, GLSL, and thoughtful interaction design.
-        This page runs entirely in the browser — a living shader field behind a simple bio.
-      </p>
-    </section>
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner">
+      <a href="#hero" class="logo">
+        <span class="logo__glyph" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M16 2v6M16 24v6M2 16h6M24 16h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="0.75" opacity="0.4"/></svg>
+        </span>
+        <span class="logo__text">NEXUS<span class="logo__accent">.RED</span></span>
+      </a>
 
-    <section class="bio__section">
-      <h2 class="bio__label">Focus</h2>
-      <ul class="bio__tags">
-        <li>WebGL</li>
-        <li>GLSL Shaders</li>
-        <li>Creative Coding</li>
-        <li>GitHub Pages</li>
-      </ul>
-    </section>
-
-    <section class="bio__section">
-      <h2 class="bio__label">Links</h2>
-      <nav class="bio__links">
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="mailto:hello@example.com">Email</a>
-        <a href="#" target="_blank" rel="noopener noreferrer">Portfolio</a>
+      <nav class="nav" id="nav" aria-label="Main navigation">
+        <a href="#features" class="nav__link">Systems</a>
+        <a href="#about" class="nav__link">Origin</a>
+        <a href="#capabilities" class="nav__link">Arsenal</a>
+        <a href="#pricing" class="nav__link">Access</a>
+        <a href="#testimonials" class="nav__link">Signals</a>
+        <a href="#contact" class="nav__link nav__link--cta">Connect</a>
       </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+      <a href="#features" class="nav-mobile__link">Systems</a>
+      <a href="#about" class="nav-mobile__link">Origin</a>
+      <a href="#capabilities" class="nav-mobile__link">Arsenal</a>
+      <a href="#pricing" class="nav-mobile__link">Access</a>
+      <a href="#testimonials" class="nav-mobile__link">Signals</a>
+      <a href="#contact" class="nav-mobile__link">Connect</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__grid">
+        <div class="hero__content" data-reveal>
+          <div class="hero__badge">
+            <span class="pulse-dot"></span>
+            <span>Signal Online · Sector 7G</span>
+          </div>
+          <p class="hero__eyebrow">Welcome to the Red Galaxy</p>
+          <h1 class="hero__title">
+            <span class="hero__title-line">Your</span>
+            <span class="hero__title-line hero__title-line--accent">Name</span>
+          </h1>
+          <p class="hero__subtitle">Creative Developer · Shader Architect · Immersive Experience Designer</p>
+          <p class="hero__desc">I engineer cinematic web realities at the intersection of WebGL, GLSL, and luxury interaction design. Every pixel is a star in a crafted universe.</p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary">
+              <span class="btn__glow"></span>
+              <span class="btn__text">Initiate Contact</span>
+              <span class="btn__icon" aria-hidden="true">→</span>
+            </a>
+            <a href="#features" class="btn btn--ghost">
+              <span class="btn__text">Explore Systems</span>
+            </a>
+          </div>
+          <div class="hero__stats">
+            <div class="hero__stat">
+              <span class="hero__stat-value" data-count="50">0</span>
+              <span class="hero__stat-label">Projects Launched</span>
+            </div>
+            <div class="hero__stat-divider"></div>
+            <div class="hero__stat">
+              <span class="hero__stat-value" data-count="12">0</span>
+              <span class="hero__stat-label">Years in Orbit</span>
+            </div>
+            <div class="hero__stat-divider"></div>
+            <div class="hero__stat">
+              <span class="hero__stat-value" data-count="99">0</span>
+              <span class="hero__stat-label">Client Satisfaction</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual" data-reveal data-reveal-delay="200">
+          <div class="orbital" data-parallax="0.04">
+            <div class="orbital__ring orbital__ring--1"></div>
+            <div class="orbital__ring orbital__ring--2"></div>
+            <div class="orbital__ring orbital__ring--3"></div>
+            <div class="orbital__core">
+              <div class="orbital__core-inner"></div>
+            </div>
+            <div class="orbital__satellite orbital__satellite--1"></div>
+            <div class="orbital__satellite orbital__satellite--2"></div>
+          </div>
+          <div class="hero__hud">
+            <div class="hud-panel">
+              <span class="hud-panel__label">COORD</span>
+              <span class="hud-panel__value" id="hud-coord">00.000 · 00.000</span>
+            </div>
+            <div class="hud-panel">
+              <span class="hud-panel__label">RENDER</span>
+              <span class="hud-panel__value">WebGL2 · GLSL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Descend</span>
+        <div class="hero__scroll-line"></div>
+      </div>
     </section>
 
-    <footer class="bio__footer">
-      <span class="bio__hint">Move your cursor to disturb the field</span>
-    </footer>
+    <!-- FEATURES -->
+    <section class="section features" id="features">
+      <div class="section__header" data-reveal>
+        <span class="section__tag">// Systems</span>
+        <h2 class="section__title">Core <span class="text-glow">Capabilities</span></h2>
+        <p class="section__desc">Precision-engineered modules for building next-generation digital experiences in the red spectrum.</p>
+      </div>
+
+      <div class="features__grid">
+        <article class="feature-card feature-card--large" data-reveal data-reveal-delay="0">
+          <div class="feature-card__glow"></div>
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M24 4L44 14v20L24 44 4 34V14L24 4z" stroke="currentColor" stroke-width="1.5"/><path d="M24 16v16M16 24h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="feature-card__title">WebGL Engines</h3>
+          <p class="feature-card__text">Custom real-time rendering pipelines with shader-driven visuals, particle systems, and GPU-accelerated animations that breathe life into the void.</p>
+          <span class="feature-card__index">01</span>
+        </article>
+
+        <article class="feature-card" data-reveal data-reveal-delay="100">
+          <div class="feature-card__glow"></div>
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="1.5"/><path d="M12 24c0-6.627 5.373-12 12-12M36 24c0 6.627-5.373 12-12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="feature-card__title">GLSL Shaders</h3>
+          <p class="feature-card__text">Procedural nebula fields, distortion effects, and cinematic post-processing crafted in pure shader language.</p>
+          <span class="feature-card__index">02</span>
+        </article>
+
+        <article class="feature-card" data-reveal data-reveal-delay="200">
+          <div class="feature-card__glow"></div>
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M16 20h16M16 28h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="feature-card__title">Luxury UI</h3>
+          <p class="feature-card__text">Glassmorphic interfaces with neon accents, micro-interactions, and responsive architectures built for premium brands.</p>
+          <span class="feature-card__index">03</span>
+        </article>
+
+        <article class="feature-card" data-reveal data-reveal-delay="100">
+          <div class="feature-card__glow"></div>
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M8 36L20 12l8 12 12-24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="feature-card__title">Creative Coding</h3>
+          <p class="feature-card__text">Generative art, interactive installations, and experimental web experiences that push beyond conventional boundaries.</p>
+          <span class="feature-card__index">04</span>
+        </article>
+
+        <article class="feature-card feature-card--wide" data-reveal data-reveal-delay="200">
+          <div class="feature-card__glow"></div>
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M6 24h36M24 6v36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3 class="feature-card__title">Performance Architecture</h3>
+          <p class="feature-card__text">Optimized delivery pipelines ensuring 60fps experiences across devices — from flagship workstations to mobile terminals in deep space.</p>
+          <span class="feature-card__index">05</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="about__layout">
+        <div class="about__visual" data-reveal>
+          <div class="about__frame" data-parallax="0.06">
+            <div class="about__frame-inner">
+              <div class="about__avatar">
+                <span class="about__avatar-initials">YN</span>
+                <div class="about__avatar-ring"></div>
+              </div>
+            </div>
+            <div class="about__frame-corner about__frame-corner--tl"></div>
+            <div class="about__frame-corner about__frame-corner--br"></div>
+          </div>
+          <div class="about__orbit-data">
+            <span>STATUS: ACTIVE</span>
+            <span>CLASS: CREATIVE DEV</span>
+          </div>
+        </div>
+
+        <div class="about__content" data-reveal data-reveal-delay="150">
+          <span class="section__tag">// Origin</span>
+          <h2 class="section__title">Forged in the <span class="text-glow">Crimson Void</span></h2>
+          <p class="about__text">I build immersive web experiences with WebGL, GLSL, and thoughtful interaction design. This platform runs entirely in the browser — a living red galaxy behind a luxury interface.</p>
+          <p class="about__text">My mission is to transform static pages into cinematic journeys. Every project is an expedition through uncharted digital space, where code becomes cosmos and interfaces feel like command centers of the future.</p>
+          <div class="about__tags">
+            <span class="tag">WebGL</span>
+            <span class="tag">GLSL Shaders</span>
+            <span class="tag">Creative Coding</span>
+            <span class="tag">Three.js</span>
+            <span class="tag">React</span>
+            <span class="tag">GitHub Pages</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section class="section capabilities" id="capabilities">
+      <div class="section__header section__header--center" data-reveal>
+        <span class="section__tag">// Arsenal</span>
+        <h2 class="section__title">Tech <span class="text-glow">Constellation</span></h2>
+      </div>
+
+      <div class="capabilities__orbit" data-reveal data-reveal-delay="100">
+        <div class="capabilities__center">
+          <span>STACK</span>
+        </div>
+        <div class="cap-node" style="--i:0"><span>WebGL2</span></div>
+        <div class="cap-node" style="--i:1"><span>GLSL</span></div>
+        <div class="cap-node" style="--i:2"><span>Three.js</span></div>
+        <div class="cap-node" style="--i:3"><span>TypeScript</span></div>
+        <div class="cap-node" style="--i:4"><span>React</span></div>
+        <div class="cap-node" style="--i:5"><span>Node.js</span></div>
+        <div class="cap-node" style="--i:6"><span>Canvas</span></div>
+        <div class="cap-node" style="--i:7"><span>GSAP</span></div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section pricing" id="pricing">
+      <div class="section__header" data-reveal>
+        <span class="section__tag">// Access</span>
+        <h2 class="section__title">Mission <span class="text-glow">Clearance</span></h2>
+        <p class="section__desc">Select your engagement tier. Every package includes premium delivery and red-galaxy-grade craftsmanship.</p>
+      </div>
+
+      <div class="pricing__grid">
+        <article class="price-card" data-reveal data-reveal-delay="0">
+          <div class="price-card__header">
+            <span class="price-card__tier">Scout</span>
+            <div class="price-card__price"><span class="price-card__currency">$</span>2,500<span class="price-card__period">/project</span></div>
+          </div>
+          <ul class="price-card__features">
+            <li>Landing page with shader background</li>
+            <li>Responsive glass UI design</li>
+            <li>Basic scroll animations</li>
+            <li>2 revision cycles</li>
+            <li>7-day delivery</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline btn--block">Request Access</a>
+        </article>
+
+        <article class="price-card price-card--featured" data-reveal data-reveal-delay="100">
+          <div class="price-card__badge">Most Deployed</div>
+          <div class="price-card__header">
+            <span class="price-card__tier">Commander</span>
+            <div class="price-card__price"><span class="price-card__currency">$</span>7,500<span class="price-card__period">/project</span></div>
+          </div>
+          <ul class="price-card__features">
+            <li>Full immersive web experience</li>
+            <li>Custom WebGL / GLSL shaders</li>
+            <li>Advanced interactions & parallax</li>
+            <li>Performance optimization</li>
+            <li>5 revision cycles</li>
+            <li>21-day delivery</li>
+          </ul>
+          <a href="#contact" class="btn btn--primary btn--block">
+            <span class="btn__glow"></span>
+            <span class="btn__text">Initiate Mission</span>
+          </a>
+        </article>
+
+        <article class="price-card" data-reveal data-reveal-delay="200">
+          <div class="price-card__header">
+            <span class="price-card__tier">Admiral</span>
+            <div class="price-card__price"><span class="price-card__currency">$</span>15K+<span class="price-card__period">/project</span></div>
+          </div>
+          <ul class="price-card__features">
+            <li>Enterprise-grade platform</li>
+            <li>Real-time 3D environments</li>
+            <li>Full creative direction</li>
+            <li>Ongoing support retainer</li>
+            <li>Unlimited revisions</li>
+            <li>Custom timeline</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline btn--block">Open Channel</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials" id="testimonials">
+      <div class="section__header section__header--center" data-reveal>
+        <span class="section__tag">// Signals</span>
+        <h2 class="section__title">Transmissions <span class="text-glow">Received</span></h2>
+      </div>
+
+      <div class="testimonials__track" data-reveal data-reveal-delay="100">
+        <article class="testimonial-card">
+          <div class="testimonial-card__stars" aria-hidden="true">★★★★★</div>
+          <blockquote class="testimonial-card__quote">"The shader work alone redefined our brand presence. It feels like stepping into a sci-fi command center — our conversion rate jumped 40% in the first month."</blockquote>
+          <footer class="testimonial-card__author">
+            <div class="testimonial-card__avatar">AK</div>
+            <div>
+              <cite class="testimonial-card__name">Alex Kovač</cite>
+              <span class="testimonial-card__role">CEO, Stellar Dynamics</span>
+            </div>
+          </footer>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-card__stars" aria-hidden="true">★★★★★</div>
+          <blockquote class="testimonial-card__quote">"Every interaction feels intentional and luxurious. The attention to performance while delivering cinematic visuals is unmatched in the industry."</blockquote>
+          <footer class="testimonial-card__author">
+            <div class="testimonial-card__avatar">MR</div>
+            <div>
+              <cite class="testimonial-card__name">Mira Reyes</cite>
+              <span class="testimonial-card__role">Creative Director, Nova Labs</span>
+            </div>
+          </footer>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-card__stars" aria-hidden="true">★★★★★</div>
+          <blockquote class="testimonial-card__quote">"We needed something that didn't exist yet. The result was a fully custom WebGL universe that our users still talk about months after launch."</blockquote>
+          <footer class="testimonial-card__author">
+            <div class="testimonial-card__avatar">JT</div>
+            <div>
+              <cite class="testimonial-card__name">James Thorne</cite>
+              <span class="testimonial-card__role">Founder, Redshift Ventures</span>
+            </div>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="contact__layout">
+        <div class="contact__info" data-reveal>
+          <span class="section__tag">// Connect</span>
+          <h2 class="section__title">Open a <span class="text-glow">Channel</span></h2>
+          <p class="contact__desc">Ready to launch your next mission? Transmit your coordinates and I'll respond within 24 hours.</p>
+
+          <div class="contact__links">
+            <a href="https://github.com/" class="contact__link" target="_blank" rel="noopener noreferrer">
+              <span class="contact__link-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </span>
+              GitHub
+            </a>
+            <a href="mailto:hello@example.com" class="contact__link">
+              <span class="contact__link-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+              </span>
+              hello@example.com
+            </a>
+            <a href="#" class="contact__link" target="_blank" rel="noopener noreferrer">
+              <span class="contact__link-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              </span>
+              Portfolio
+            </a>
+          </div>
+        </div>
+
+        <form class="contact__form glass-panel" id="contact-form" data-reveal data-reveal-delay="150">
+          <div class="form-group">
+            <label for="name" class="form-label">Designation</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required autocomplete="name">
+            <span class="form-input__glow"></span>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Frequency</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="you@domain.com" required autocomplete="email">
+            <span class="form-input__glow"></span>
+          </div>
+          <div class="form-group">
+            <label for="mission" class="form-label">Mission Brief</label>
+            <select id="mission" name="mission" class="form-input form-select">
+              <option value="scout">Scout — Landing Page</option>
+              <option value="commander" selected>Commander — Full Experience</option>
+              <option value="admiral">Admiral — Enterprise Platform</option>
+              <option value="other">Custom Mission</option>
+            </select>
+            <span class="form-input__glow"></span>
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Transmission</label>
+            <textarea id="message" name="message" class="form-input form-textarea" placeholder="Describe your vision..." rows="4" required></textarea>
+            <span class="form-input__glow"></span>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block">
+            <span class="btn__glow"></span>
+            <span class="btn__text">Transmit Message</span>
+            <span class="btn__icon" aria-hidden="true">→</span>
+          </button>
+          <p class="form-success" id="form-success" hidden>Transmission received. I'll respond within 24 hours.</p>
+        </form>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <span class="logo__text">NEXUS<span class="logo__accent">.RED</span></span>
+        <p class="site-footer__tagline">Forged in the crimson void. Built for the future.</p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        <a href="#features">Systems</a>
+        <a href="#about">Origin</a>
+        <a href="#pricing">Access</a>
+        <a href="#contact">Connect</a>
+      </nav>
+      <div class="site-footer__bottom">
+        <span class="site-footer__copy">&copy; 2026 Your Name. All rights reserved.</span>
+        <span class="site-footer__hint" id="footer-hint">Move cursor to disturb the nebula field</span>
+      </div>
+    </div>
+  </footer>
 
   <script src="js/shaders.js"></script>
   <script src="js/webgl.js"></script>

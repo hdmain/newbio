@@ -1,6 +1,6 @@
-# Shader Bio
+# Red Galaxy — Premium Bio Platform
 
-A personal bio page with a **WebGL2 + GLSL** animated background. Static files only — works on **GitHub Pages** with no build step.
+A cinematic personal platform with a **Red Galaxy** aesthetic — WebGL2 + GLSL nebula background, glassmorphic UI, neon red glows, and luxury sci-fi interactions. Static files only — works on **GitHub Pages** with no build step.
 
 ## Local preview
 
@@ -20,6 +20,6 @@ Open [http://localhost:8080](http://localhost:8080).
 
 ## Customize
 
-Edit `index.html` for your name, bio text, tags, and links.
+Edit `index.html` for your name, bio text, tags, links, pricing tiers, and testimonials.
 
-Shader uniforms and colors live in `js/shaders.js`. Rendering logic is in `js/webgl.js`.
+Shader colors and nebula effects live in `js/shaders.js`. Rendering logic is in `js/webgl.js`. UI interactions (parallax, scroll reveal, particles) are in `js/main.js`.
