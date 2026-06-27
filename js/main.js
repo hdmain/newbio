@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  I18n.init();
+
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ─── WebGL Shader Background ─── */
@@ -12,7 +14,7 @@
     console.error(err);
     document.body.classList.add("fallback-bg");
     const hint = document.getElementById("footer-hint");
-    if (hint) hint.textContent = "WebGL unavailable — static nebula fallback active";
+    if (hint) hint.textContent = I18n.t("footer.hintFallback");
   }
 
   /* ─── Star Field ─── */
@@ -260,13 +262,12 @@
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
       const text = btn.querySelector(".btn__text");
-      const original = text.textContent;
 
-      text.textContent = "Transmitting...";
+      text.textContent = I18n.t("contact.btnSending");
       btn.disabled = true;
 
       setTimeout(() => {
-        text.textContent = original;
+        text.textContent = I18n.t("contact.btnSubmit");
         btn.disabled = false;
         form.reset();
         if (success) {

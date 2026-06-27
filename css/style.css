@@ -350,6 +350,49 @@ body.cursor-active .cursor-glow {
   color: var(--text-primary);
 }
 
+/* ─── Language Switcher ─── */
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--glass-border);
+  border-radius: 2px;
+  background: rgba(10, 0, 5, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.lang-switch--mobile {
+  margin-bottom: 1rem;
+  padding: 4px;
+}
+
+.lang-switch__btn {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.65rem;
+  border: none;
+  border-radius: 1px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.25s, background 0.25s, box-shadow 0.25s;
+}
+
+.lang-switch__btn:hover {
+  color: var(--text-primary);
+}
+
+.lang-switch__btn--active {
+  background: rgba(255, 26, 60, 0.2);
+  color: var(--neon-red);
+  box-shadow: 0 0 12px rgba(255, 26, 60, 0.25);
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -1724,6 +1767,7 @@ body.fallback-bg {
 
 @media (max-width: 768px) {
   .nav { display: none; }
+  .lang-switch:not(.lang-switch--mobile) { display: none; }
   .nav-toggle { display: flex; }
   .nav-mobile { display: flex; }
 
