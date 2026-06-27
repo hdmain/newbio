@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal bio">
+  <title>Bio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="shader-canvas" aria-hidden="true"></canvas>
+
+  <main class="bio">
+    <header class="bio__header">
+      <p class="bio__eyebrow">Hello, I'm</p>
+      <h1 class="bio__name" data-text="Your Name">Your Name</h1>
+      <p class="bio__role">Creative Developer · Shader Artist</p>
+    </header>
+
+    <section class="bio__section">
+      <h2 class="bio__label">About</h2>
+      <p class="bio__text">
+        I build immersive web experiences with WebGL, GLSL, and thoughtful interaction design.
+        This page runs entirely in the browser — a living shader field behind a simple bio.
+      </p>
+    </section>
+
+    <section class="bio__section">
+      <h2 class="bio__label">Focus</h2>
+      <ul class="bio__tags">
+        <li>WebGL</li>
+        <li>GLSL Shaders</li>
+        <li>Creative Coding</li>
+        <li>GitHub Pages</li>
+      </ul>
+    </section>
+
+    <section class="bio__section">
+      <h2 class="bio__label">Links</h2>
+      <nav class="bio__links">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="mailto:hello@example.com">Email</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">Portfolio</a>
+      </nav>
+    </section>
+
+    <footer class="bio__footer">
+      <span class="bio__hint">Move your cursor to disturb the field</span>
+    </footer>
+  </main>
+
+  <script src="js/shaders.js"></script>
+  <script src="js/webgl.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
